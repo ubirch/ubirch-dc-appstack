@@ -1,0 +1,17 @@
+elasticsearch:
+  image: elasticsearch
+  ports:
+   - "127.0.0.1:9200:9200"
+mosquitto:
+  image: maxheadroon/owntracks
+  ports:
+   - "1883:1883"
+ubirch-server:
+  image: ubirch/ubirch-server
+  links:
+    - mosquitto:mqtt
+    - elasticsearch:search
+kibana:
+   image: kibana
+   ports:
+    - "127.0.0.1:5601:5601"
