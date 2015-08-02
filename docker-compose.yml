@@ -3,7 +3,7 @@ elasticsearch:
   volumes_from:
   - esdata
   ports:
-   - "127.0.0.1:9200:9200"
+   - "9200:9200"
 mosquitto:
   image: maxheadroom/owntracks
   ports:
@@ -12,7 +12,7 @@ ubirchserver:
   image: ubirch/ubirch-server
   links:
     - mosquitto:mqtt
-    - elasticsearch:search
+    - elasticsearch:elastic
   volumes:
     - /opt/ubirch-dc-appstack/ubirch-server:/opt
 kibana:
