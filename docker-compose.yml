@@ -13,6 +13,8 @@ ubirchserver:
   links:
     - mosquitto:mqtt
     - elasticsearch:search
+  volumes:
+    - /opt/ubirch-dc-appstack/ubirch-server:/opt
 kibana:
    image: kibana
    ports:
